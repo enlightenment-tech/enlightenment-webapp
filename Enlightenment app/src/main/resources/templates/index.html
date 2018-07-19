@@ -1,4 +1,4 @@
-<!--DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -15,7 +15,7 @@
   
       $stomp.connect('/livescore-websocket', {})
             .then(function (frame) {
-                var subscription = $stomp.subscribe('/topic/myscores', 
+                var subscription = $stomp.subscribe('/topic/myticker', 
                     function (payload, headers, res) {
                         $scope.myres = payload;
                         $scope.$apply($scope.myres);
@@ -45,4 +45,4 @@ li{
     </ul>
 </div>    
 </body>
-</html-->
+</html>
