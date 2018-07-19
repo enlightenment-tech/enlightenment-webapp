@@ -4,8 +4,6 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<nav
 		class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase"
@@ -45,11 +43,11 @@
 	<section class="portfolio" id="portfolio">
 		<div class="container" data-ng-controller="ticker-controller as vm">
 			<div class="row">
-				<div class="col-md-1"></div>
+				<div class="col-md-1"><h4>Kraken</h4></div>
 				<div class="col-md-4">
 					<div class="form-group">
-						<H3>Buy at:</H3>
-						<span>{{ticker.ask.price}}</span>
+						<H4>Buy at: <span>{{myres.ask.price}}</span></H4>
+						
 						<p></p>
 					</div>
 				</div>
@@ -57,15 +55,39 @@
 				<div class="col-md-4">
 					<form role="form">
 						<div class="form-group">
-							<H3>Sell at:</H3>
-							<span>{{ticker.bid.price}}</span>
+							<H4>Sell at: <span>{{myres.bid.price}}</span></H4>
+						
 						</div>
 					</form>
 				</div>
 				<div class="col-md-1">
 					<br>
-					<button class="btn btn-success" type="button" value=""
-						data-ng-click="vm.startKrakenTicker();">Refresh</button>
+					<!--<button class="btn btn-success" type="button" value=""
+						data-ng-click="vm.startKrakenTicker();">Refresh</button>-->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-1"><h4>Bitstamp</h4></div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<H4>Buy at: <span>{{}}</span></H4>
+						
+						<p></p>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+				<div class="col-md-4">
+					<form role="form">
+						<div class="form-group">
+							<H4>Sell at: <span>{{}}</span></H4>
+						
+						</div>
+					</form>
+				</div>
+				<div class="col-md-1">
+					<br>
+					<!--<button class="btn btn-success" type="button" value=""
+						data-ng-click="vm.startKrakenTicker();">Refresh</button>-->
 				</div>
 			</div>
 		</div>

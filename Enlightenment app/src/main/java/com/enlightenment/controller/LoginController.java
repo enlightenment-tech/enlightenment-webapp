@@ -57,12 +57,6 @@ public class LoginController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value="/index", method = RequestMethod.POST)
-	public ModelAndView index(String test){
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("index");
-		return modelAndView;
-	}
 	
 	@RequestMapping(value="/registration", method = RequestMethod.GET)
 	public ModelAndView registration(){
