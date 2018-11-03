@@ -5,27 +5,7 @@
 <title>WebSocket Client</title>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 <script src="js/lib/ng-stomp.standalone.min.js"></script>
-<script type="text/javascript">
-  
-  var app = angular.module('kswaughsLiveScore', ['ngStomp']);
- 
-  app.controller('LiveController', function ($stomp, $scope) {
-  
-      $scope.myres = [];
-  
-      $stomp.connect('/livescore-websocket', {})
-            .then(function (frame) {
-                var subscription = $stomp.subscribe('/topic/myticker', 
-                    function (payload, headers, res) {
-                        $scope.myres = payload;
-                        $scope.$apply($scope.myres);
-                });
-            
-                $stomp.send('/app/score', '');
-         });
-  });
-  
- </script>
+
  <style> 
  .liveScore{
     color : blue;
@@ -38,11 +18,36 @@ li{
 </style>
 </head>
 <body >
-<div class="liveScore" ng-app="kswaughsLiveScore" ng-controller="LiveController">
-   <p>Cricket - Live Score</p>
+<div class="liveScore" ng-app="PriceApp" ng-controller="PriceController">
+   <p>Enlightenment raw price</p>
     <ul>
-        <li >{{myres.ask.price}} - <b>{{myres.bid.price}}</b></li>
+        <li>{{Xbid}-{Xask}}}</li>
     </ul>
-</div>    
+</div>
+
+<script type="text/javascript">
+
+  var app = angular.module('PriceApp', ['ngStomp']);
+
+  //app.controller('LiveController', function ($stomp, $scope) {
+  app.controller('PriceController', function ($stomp, $scope) {
+
+      // $scope.myres = {};
+
+      $stomp.connect('/ticker-data', {})
+            .then(function (frame) {
+                var subscription = $stomp.subscribe('/topic/myticker',
+                    function (payload, headers, res) {
+                        $scope.Xbid = "B"; // payload;
+                        $scope.Xask = "A";
+                        $scope.$apply($scope.myres);
+                });
+
+                $stomp.send('/app/score', '');
+         });
+  });
+
+ </script>
+
 </body>
 </html>

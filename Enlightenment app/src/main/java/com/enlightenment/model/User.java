@@ -1,6 +1,8 @@
 package com.enlightenment.model;
 
+/*
 import java.util.Set;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -104,3 +106,4 @@ public class User {
 	}
 
 }
+*/

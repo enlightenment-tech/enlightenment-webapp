@@ -2,6 +2,7 @@ package com.enlightenment.configuration;
 
 import java.io.IOException;
 
+import com.enlightenment.controller.EnlApiController;
 import org.knowm.xchange.Exchange;
 import org.knowm.xchange.ExchangeFactory;
 import org.knowm.xchange.currency.CurrencyPair;
@@ -28,7 +29,8 @@ public class TickerScheduler {
     private SimpMessagingTemplate template;
 	
 	@Autowired
-	KrakenApiController kraken;
+	EnlApiController enl;
+	//KrakenApiController kraken
 	
 //	@Autowired
 //	BitstampApiController bitstamp;
@@ -39,7 +41,8 @@ public class TickerScheduler {
 		
 	 @Scheduled(fixedRate = 5000)
 	    public void publishUpdates(){
-	       String res = kraken.krakentickerfunc();
+	       String res = enl.enltickerfunc();
+	       //String res = kraken.krakentickerfunc();
 	      // String res1 = bitstamp.poloniextickerfunc();
 	        template.convertAndSend("/topic/myticker", res);
 	    }

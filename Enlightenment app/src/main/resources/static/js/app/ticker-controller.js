@@ -1,6 +1,6 @@
 app.controller('ticker-controller', function($stomp, $scope) {
 
-	$scope.myres = [];
+	$scope.myres = {};
 
 	$stomp.connect('/ticker-data', {}).then(
 			function(frame) {

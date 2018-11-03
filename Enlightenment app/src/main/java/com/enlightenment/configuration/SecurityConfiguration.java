@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
+//import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,24 +33,26 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-	@Autowired
-	private DataSource dataSource;
+	//@Autowired
+	//private DataSource dataSource;
 	
-	@Value("${spring.queries.users-query}")
-	private String usersQuery;
+	//@Value("${spring.queries.users-query}")
+	//private String usersQuery;
 	
-	@Value("${spring.queries.roles-query}")
-	private String rolesQuery;
+	//@Value("${spring.queries.roles-query}")
+	//private String rolesQuery;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth)
 			throws Exception {
-		auth.
+		auth.inMemoryAuthentication();
+				/*
 			jdbcAuthentication()
 				.usersByUsernameQuery(usersQuery)
 				.authoritiesByUsernameQuery(rolesQuery)
 				.dataSource(dataSource)
 				.passwordEncoder(bCryptPasswordEncoder);
+				*/
 	}
 
 	@Override
