@@ -1,4 +1,4 @@
-package com.enlightenment;
+package com.enl-tech;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

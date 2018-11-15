@@ -1,4 +1,4 @@
-package com.enlightenment.configuration;
+package com.enl-tech.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

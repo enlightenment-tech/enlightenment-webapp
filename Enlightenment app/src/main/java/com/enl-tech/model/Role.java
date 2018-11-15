@@ -1,4 +1,4 @@
-package com.enlightenment.model;
+package com.enl-tech.model;
 
 /*
 import javax.persistence.Column;

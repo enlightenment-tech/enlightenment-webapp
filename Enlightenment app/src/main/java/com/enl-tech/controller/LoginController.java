@@ -1,6 +1,6 @@
-package com.enlightenment.controller;
+package com.enl-tech.controller;
 
-/*
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.enlightenment.model.User;
-import com.enlightenment.service.UserService;
+import com.enl-tech.model.User;
+import com.enl-tech.service.UserService;
 
 @Controller
 public class LoginController {
@@ -35,14 +35,14 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
-	public ModelAndView login( String email,String password){
+	public ModelAndView login( String userId, String password){
 		ModelAndView modelAndView = new ModelAndView();	
-		User user = userService.findUserByEmail(email);
+		User user = userService.login(email, password);
 		
-		String dbpassword=user.getPassword();
-		boolean res =bCryptPasswordEncoder.matches(password, dbpassword);
+		//String dbpassword=user.getPassword();
+		//boolean res =bCryptPasswordEncoder.matches(password, dbpassword);
 		//modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-		if(res==false) {
+		if(user == null) {
 			modelAndView.setViewName("/login");
 			modelAndView.addObject("errormsg","Wrong Username or Password");
 			return modelAndView;
@@ -58,7 +58,7 @@ public class LoginController {
 		return modelAndView;
 	}
 
-	
+	/*
 	@RequestMapping(value="/registration", method = RequestMethod.GET)
 	public ModelAndView registration(){
 		ModelAndView modelAndView = new ModelAndView();
@@ -88,6 +88,7 @@ public class LoginController {
 		}
 		return modelAndView;
 	}
+	*/
 	
 //	@RequestMapping(value="/admin/home", method = RequestMethod.GET)
 //	public ModelAndView home(){
@@ -101,4 +102,3 @@ public class LoginController {
 //	}
 
 }
-*/

@@ -1,4 +1,4 @@
-package com.enlightenment.repository;
+package com.enl-tech.repository;
 
 /*
 import org.springframework.data.jpa.repository.JpaRepository;
